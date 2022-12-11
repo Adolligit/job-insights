@@ -1,3 +1,4 @@
+from jobs import read
 from typing import Union, List, Dict
 
 
@@ -16,7 +17,10 @@ def get_max_salary(path: str) -> int:
     int
         The maximum salary paid out of all job opportunities
     """
-    raise NotImplementedError
+    return max([
+        job['max_salary']
+        for job in read(path)
+    ])
 
 
 def get_min_salary(path: str) -> int:
