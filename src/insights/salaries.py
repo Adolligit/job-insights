@@ -1,4 +1,4 @@
-from jobs import read
+from src.insights.jobs import read
 from typing import Union, List, Dict
 
 
@@ -18,8 +18,9 @@ def get_max_salary(path: str) -> int:
         The maximum salary paid out of all job opportunities
     """
     return max([
-        job['max_salary']
+        int(job["max_salary"])
         for job in read(path)
+        if job["max_salary"].isdigit()
     ])
 
 
