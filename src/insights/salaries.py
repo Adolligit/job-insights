@@ -95,4 +95,11 @@ def filter_by_salary_range(
     list
         Jobs whose salary range contains `salary`
     """
-    raise NotImplementedError
+    try:
+        return [
+            job
+            for job in jobs
+            if (int(job['min_salary']) <= int(salary) <= int(job['max_salary']))
+        ]
+    except Exception:
+        return []
