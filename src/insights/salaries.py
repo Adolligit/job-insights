@@ -99,7 +99,10 @@ def filter_by_salary_range(
         return [
             job
             for job in jobs
-            if (int(job['min_salary']) <= int(salary) <= int(job['max_salary']))
+            if (
+                int(job['min_salary']) <= int(salary) <= int(job['max_salary'])
+            )
+            # para o python isso ficou melhor...
         ]
     except Exception:
         return []
